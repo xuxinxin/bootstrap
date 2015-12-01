@@ -15,6 +15,7 @@
 
   var dismiss = '[data-dismiss="alert"]'
   var Alert   = function (el) {
+    console.log('oh')
     $(el).on('click', dismiss, this.close)
   }
 
@@ -23,6 +24,7 @@
   Alert.TRANSITION_DURATION = 150
 
   Alert.prototype.close = function (e) {
+    console.log('close');
     var $this    = $(this)
     var selector = $this.attr('data-target')
 
@@ -39,7 +41,7 @@
       $parent = $this.closest('.alert')
     }
 
-    $parent.trigger(e = $.Event('close.bs.alert'))
+    //$parent.trigger(e = $.Event('close.bs.alert'))
 
     if (e.isDefaultPrevented()) return
 
@@ -62,6 +64,7 @@
   // =======================
 
   function Plugin(option) {
+    console.log('hi')
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.alert')
